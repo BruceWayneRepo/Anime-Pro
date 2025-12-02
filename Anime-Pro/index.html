@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Anime Pro: The ultimate destination for anime enthusiasts. Stream, discuss, and discover epic stories, vibrant characters, and endless adventures.">
+  <meta name="keywords" content="anime, streaming, manga, community, Naruto, Attack on Titan, Death Note">
+  <title>Anime Pro</title>
+  <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon"> <!-- Add a favicon -->
+  <style>
+    /* Enhanced Global Styles - Darker theme for anime vibe, improved typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #121212; /* Dark background for immersive anime feel */
+      color: #e0e0e0; /* Light text for contrast */
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      color: #bb86fc; /* Vibrant purple for links */
+      text-decoration: none;
+    }
+    /* Navigation Bar - Added for better usability */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(18, 18, 18, 0.9);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #ffffff;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    /* Hero Section - Enhanced with video background option and animations */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('https://source.unsplash.com/random/1920x1080/?anime,neon') no-repeat center center/cover; /* More specific query for better images */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6); /* Darker overlay */
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      padding: 20px;
+    }
+    .hero h1 {
+      font-size: 4.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .hero p {
+      font-size: 1.6rem;
+      margin-bottom: 40px;
+    }
+    .cta-button {
+      background: #bb86fc;
+      color: #121212;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-button:hover {
+      background: #9f4df5;
+      transform: scale(1.05);
+    }
+    /* Features Section - Added animations and more content */
+    .features {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .features h2 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #bb86fc;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .feature {
+      text-align: center;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .feature:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(187, 134, 252, 0.3);
+    }
+    .feature img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .feature h3 {
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+    .feature p {
+      font-size: 1.1rem;
+      color: #b0b0b0;
+    }
+    /* New Section: Latest News - Inspired by MyAnimeList */
+    .news {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .news h2 {
+      font-size: 2.8rem;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #bb86fc;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .news-item {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .news-item:hover {
+      transform: translateY(-10px);
+    }
+    .news-item h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    .news-item p {
+      font-size: 1rem;
+      color: #b0b0b0;
+    }
+    /* Parallax Section - Enhanced */
+    .parallax-section {
+      position: relative;
+      height: 60vh;
+      background: url('https://source.unsplash.com/random/1920x1080/?anime,fantasy') no-repeat center center/cover;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .parallax-content {
+      max-width: 700px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    .parallax-content h2 {
+      font-size: 3.2rem;
+    }
+    /* Newsletter Signup - Added for engagement */
+    .newsletter {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px 20px;
+      background: #1e1e1e;
+      border-radius: 15px;
+      text-align: center;
+    }
+    .newsletter h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #bb86fc;
+    }
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .newsletter input {
+      padding: 12px;
+      border: none;
+      border-radius: 30px;
+      width: 300px;
+      background: #333;
+      color: #e0e0e0;
+    }
+    .newsletter button {
+      background: #bb86fc;
+      color: #121212;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .newsletter button:hover {
+      background: #9f4df5;
+    }
+    /* Footer - Enhanced */
+    footer {
+      background: #1e1e1e;
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #b0b0b0;
+    }
+    footer a {
+      margin: 0 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">Anime Pro</div>
+    <ul>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#signup">Sign Up</a></li>
+    </ul>
+  </nav>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Anime Pro</h1>
+      <p>The ultimate destination for anime enthusiasts. Dive into worlds of epic stories, vibrant characters, and endless adventures with our streaming, discussions, and community features.</p>
+      <a href="#features" class="cta-button">Explore Now</a>
+    </div>
+  </section>
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <h2>Why Anime Pro?</h2>
+    <div class="feature-grid">
+      <div class="feature">
+        <img src="https://source.unsplash.com/random/300x200/?naruto,anime" alt="Naruto Series">
+        <h3>Iconic Series</h3>
+        <p>From Naruto's ninja journeys to One Piece's pirate quests – relive the classics with high-quality streaming.</p>
+      </div>
+      <div class="feature">
+        <img src="https://source.unsplash.com/random/300x200/?attackontitan,anime" alt="Attack on Titan">
+        <h3>Epic Battles</h3>
+        <p>Experience heart-pounding action like Attack on Titan's titan fights in stunning detail.</p>
+      </div>
+      <div class="feature">
+        <img src="https://source.unsplash.com/random/300x200/?deathnote,anime" alt="Death Note">
+        <h3>Mind-Bending Plots</h3>
+        <p>Twists and turns in stories like Death Note that keep you guessing – discuss with fans.</p>
+      </div>
+    </div>
+  </section>
+  <!-- New: Latest News Section -->
+  <section id="news" class="news">
+    <h2>Latest Anime News</h2>
+    <div class="news-grid">
+      <div class="news-item">
+        <h3>Spy x Family Season 3 Announced</h3>
+        <p>Exciting updates on the Forger family's next adventures. Release date and trailer details inside.</p>
+      </div>
+      <div class="news-item">
+        <h3>Top Manga on Sale</h3>
+        <p>Discover deals on popular titles like 'With You, Our Love Will Make It Through'.</p>
+      </div>
+      <div class="news-item">
+        <h3>Community Discussions Heating Up</h3>
+        <p>Join talks on the most important anime to watch this year.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Parallax Section (id for nav) -->
+  <section id="community" class="parallax-section">
+    <div class="parallax-content">
+      <h2>Join the Anime Revolution</h2>
+      <p>Stream, discuss, and create with a global community of fans. Share reviews, recommendations, and more.</p>
+    </div>
+  </section>
+  <!-- Newsletter Signup -->
+  <section id="signup" class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter for the latest anime news, releases, and exclusive offers.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Anime Pro. All rights reserved.</p>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Contact</a>
+  </footer>
+  <script>
+    // Smooth scroll for links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    // Simple form submission alert (for demo)
+    document.querySelector('.newsletter form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Subscribed successfully!');
+    });
+  </script>
+</body>
+</html>
